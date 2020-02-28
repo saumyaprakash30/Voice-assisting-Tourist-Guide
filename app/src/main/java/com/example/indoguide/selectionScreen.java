@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +30,7 @@ public class selectionScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection_screen);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         sv =  findViewById(R.id.svHomeScreen);
         btnPlace = findViewById(R.id.btnSelectHomeScreen);
         btnStart = findViewById(R.id.btnStartHomeScreen);
@@ -87,7 +89,8 @@ public class selectionScreen extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences(PLACE_SELECTED,MODE_PRIVATE).edit();
                 editor.putString("place",data);
-                editor.putString("startPoint",startpts[spinner.getSelectedItemPosition()]);
+                editor.putString("startpoint",startpts[spinner.getSelectedItemPosition()]);
+                editor.commit();
                 selectionScreen.this.finish();
 ;            }
         });
