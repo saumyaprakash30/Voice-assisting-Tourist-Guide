@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f3f4"
+    android:orientation="vertical"
+    tools:context=".selectionScreen">
+
+    <SearchView
+        android:id="@+id/svHomeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10sp">
+
+    </SearchView>
+
+    <ListView
+        android:id="@+id/lvHints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnSelectHomeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginRight="30sp"
+        android:text="Load" />
+
+    <Spinner
+        android:id="@+id/spinnerStartingPlace"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginRight="5sp" />
+
+    <Button
+        android:id="@+id/btnStartHomeScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20sp"
+        android:text="Let's Go" />
+
+</LinearLayout>
