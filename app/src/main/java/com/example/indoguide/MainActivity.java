@@ -95,13 +95,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         place =  pref.getString("place","emptyPlace");
         startPt = pref.getString("startpoint","emptySP");
 
-        if(place=="emptyPlace"){
+        if(place.equals("emptyPlace")){
             Intent homeScreen = new Intent(this,com.example.indoguide.selectionScreen.class);
             startActivity(homeScreen);
         }else{
 
-            Toast.makeText(this, place+" "+startPt, Toast.LENGTH_SHORT).show();
-            tvPlace.setText(place+" "+startPt);
+//            Toast.makeText(this, place+" "+startPt, Toast.LENGTH_SHORT).show();
+            tvPlace.setText(place+" - "+startPt);
         }
 
 //        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE|View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
