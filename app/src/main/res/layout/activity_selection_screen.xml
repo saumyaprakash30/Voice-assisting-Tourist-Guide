@@ -8,21 +8,30 @@
     android:orientation="vertical"
     tools:context=".selectionScreen">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select a place" />
+        android:layout_height="78dp"
+        android:layout_marginLeft="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a place:" />
 
-    <SearchView
-        android:id="@+id/svHomeScreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10sp"
-        android:queryHint="search places">
+        <SearchView
+            android:id="@+id/svHomeScreen"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8sp"
+            android:queryHint="Search places">
 
-    </SearchView>
+
+        </SearchView>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/lvHints"
@@ -32,21 +41,33 @@
 
     <Button
         android:id="@+id/btnSelectHomeScreen"
+        style="@android:style/Widget.Material.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="30sp"
-        android:layout_marginTop="10sp"
         android:layout_marginRight="30sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:background="@drawable/rounded_button"
+        android:contextClickable="false"
+        android:hapticFeedbackEnabled="true"
         android:text="Load" />
+
+    <ImageView
+        android:id="@+id/ivHomeScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/chennaimuseum" />
 
     <Spinner
         android:id="@+id/spinnerStartingPlace"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginLeft="5sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginRight="5sp" />
+        android:layout_marginRight="5sp"
+        android:layout_marginTop="20sp" />
 
     <Button
         android:id="@+id/btnStartHomeScreen"
@@ -54,6 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20sp"
+        android:background="@drawable/rounded_button1"
+        android:hapticFeedbackEnabled="true"
         android:text="Let's Go" />
 
 </LinearLayout>

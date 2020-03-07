@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String PLACE_SELECTED = "com.example.IndoGuide.placeName";
     private TextView tvstep ;
+    private ImageButton mute;
     String place,startPt;
+    Boolean odd=true;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences(PLACE_SELECTED,MODE_PRIVATE);
         place =  pref.getString("place","emptyPlace");
         startPt = pref.getString("startpoint","emptySP");
-        tvstep.setText(place+" - "+startPt);
+        tvstep.setText(place+" : "+startPt);
 
     }
 
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.setTitle("IndoGuide");
 //        getSupportActionBar().hide();
         // action bar
@@ -48,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         tvstep =  findViewById(R.id.tvStep);
+        mute = findViewById(R.id.btnMute);
 
         SharedPreferences pref = getSharedPreferences(PLACE_SELECTED,MODE_PRIVATE);
-         place =  pref.getString("place","emptyPlace");
-         startPt = pref.getString("startpoint","emptySP");
+        place =  pref.getString("place","emptyPlace");
+        startPt = pref.getString("startpoint","emptySP");
 
         if(place=="emptyPlace"){
             Intent homeScreen = new Intent(this,com.example.indoguide.selectionScreen.class);
@@ -63,6 +68,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE|View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+        mute.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // your handler code here
+                if(odd)
+                {
+                    mute.setImageResource(android.R.drawable.ic_lock_silent_mode);
+                    odd=false;
+                }
+                else
+                {
+                    mute.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
+                    odd=true;
+                }
+
+            }
+        });
 
     }
 
@@ -78,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 
 
 }

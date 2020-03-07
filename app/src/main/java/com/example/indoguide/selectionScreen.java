@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -24,6 +25,7 @@ public class selectionScreen extends AppCompatActivity {
     private Button btnPlace,btnStart;
     private Spinner spinner;
     private ListView list;
+    private ImageView image;
     String data="",startpoint ="";
     String[] startpts = null;
     int selectedStartPoint=0;
@@ -31,15 +33,17 @@ public class selectionScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection_screen);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         sv =  findViewById(R.id.svHomeScreen);
         btnPlace = findViewById(R.id.btnSelectHomeScreen);
         btnStart = findViewById(R.id.btnStartHomeScreen);
         spinner  = findViewById(R.id.spinnerStartingPlace);
         list = findViewById(R.id.lvHints);
+        image = findViewById(R.id.ivHomeScreen);
         //hidden on start
         btnStart.setVisibility(View.GONE);
         spinner.setVisibility(View.GONE);
+        image.setVisibility(View.GONE);
 
 
         final ArrayList<String> places = new places().getplaces();
@@ -90,6 +94,15 @@ public class selectionScreen extends AppCompatActivity {
                     spinner.setAdapter(adapter1);
                     btnStart.setVisibility(View.VISIBLE);
                     spinner.setVisibility(View.VISIBLE);
+                    if(data=="Ehipassiko")
+                        image.setImageResource(R.drawable.ehipassiko);
+                    else if(data=="Chennai Museum")
+                        image.setImageResource(R.drawable.chennaimuseum);
+                    else if(data=="IIITDM Acad")
+                        image.setImageResource(R.drawable.iiitdmacad);
+                    else if(data=="Taj Mahal")
+                        image.setImageResource(R.drawable.tajmahal);
+                    image.setVisibility(View.VISIBLE);
 
                 }
                 else{
@@ -110,7 +123,7 @@ public class selectionScreen extends AppCompatActivity {
                 else{
                     Toast.makeText(selectionScreen.this, "Please Select Starting point!", Toast.LENGTH_SHORT).show();
                 }
-;            }
+                ;            }
         });
 
     }
